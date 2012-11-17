@@ -314,8 +314,8 @@ callback_pipestatus(void * cookie)
 	if ((C->stat_f == -1) || (C->stat_r == -1))
 		return (dropconn(C));
 
-	/* If both directions have been shut down, kill the connection. */
-	if ((C->stat_f == 0) && (C->stat_r == 0))
+	/* If the remote end has been disconnected, then kill the connection . */
+	if (C->stat_r == 0)
 		return (dropconn(C));
 
 	/* Nothing to do. */
