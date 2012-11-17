@@ -29,6 +29,9 @@ install: all
 		( cd $${D} && make BINDIR="$${BINDIR}" install ) || exit 2;	\
 	done
 
+debug:
+	CFLAGS=-ggdb3 make
+
 clean:
 	for D in ${PROGS} ${BENCH}; do		\
 		( cd $${D} && make clean ) || exit 2;	\
