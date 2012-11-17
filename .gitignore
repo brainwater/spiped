@@ -1,3 +1,4 @@
 *.o
 spiped/spiped
 spipe/spipe
+*~
