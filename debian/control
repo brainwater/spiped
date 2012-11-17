@@ -1,0 +1,21 @@
+Source: spiped
+Section: net
+Priority: extra
+Maintainer: Andreas Olsson <andreas@arrakis.se>
+Build-Depends: debhelper (>= 8.0.0), libssl-dev
+Standards-Version: 3.9.3
+Vcs-Browser: https://github.com/andreaso/spiped-debian
+Vcs-Git: https://github.com/andreaso/spiped-debian.git
+Homepage: http://www.tarsnap.com/spiped.html
+
+Package: spiped
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Utility for creating symmetrically encrypted pipes.
+ spiped (pronounced "ess-pipe-dee") is a utility for creating
+ symmetrically encrypted and authenticated pipes between socket
+ addresses, so that one may connect to one address (e.g., a UNIX socket
+ on localhost) and transparently have a connection established to
+ another address (e.g., a UNIX socket on a different system).  This is
+ similar to 'ssh -L' functionality, but does not use SSH and requires a
+ pre-shared symmetric key.

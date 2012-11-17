@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+CFLAGS = `dpkg-buildflags --get CFLAGS`
+CFLAGS += `dpkg-buildflags --get CPPFLAGS`
+LDADD_EXTRA = `dpkg-buildflags --get LDFLAGS`
+export CFLAGS LDADD_EXTRA
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	$(MAKE) BINDIR=$$(pwd)/debian/spiped/usr/bin install

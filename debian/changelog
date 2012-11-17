@@ -1,0 +1,5 @@
+spiped (1.2.2-0andol1) unstable; urgency=low
+
+  * Initial packaging.
+
+ -- Andreas Olsson <andreas@arrakis.se>  Fri, 16 Nov 2012 21:47:11 -0800
