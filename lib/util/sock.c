@@ -423,6 +423,17 @@ sock_connect_nb(const struct sock_addr * sa)
 	if ((s = socket(sa->ai_family, sa->ai_socktype, 0)) == -1)
 		goto err0;
 
+	long int timeout_seconds = 15;
+
+	struct timeval timeout;
+	timeout.tv_sec = timeout_seconds;
+	timeout.tv_usec = 0;
+
+	/* Set a timeout on the socket */
+	if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(struct timeval))) {
+		warnp("setsockopt(SO_RCVTIMEO)");
+	}
+
 	/* Mark the socket as non-blocking. */
 	if (fcntl(s, F_SETFL, O_NONBLOCK) == -1) {
 		warnp("Cannot make socket non-blocking");
